@@ -181,6 +181,20 @@ namespace maqueen{
         pins.i2cWriteBuffer(0x10, buf);
     }
     
+    //% weight=10
+    //% blockId=motor_MotorForward block="MotorForward dir|%Dir|speed|%speed"
+    //% speed.min=0 speed.max=255
+    //% direction.fieldEditor="gridpicker" direction.fieldOptions.columns=2
+    export function MotorForward(index: aMotors, direction: Dir, speed: number): void {
+        let buf = pins.createBuffer(3);
+        buf[0] = 0x00;
+        buf[1] = direction;
+        buf[2] = speed;
+        pins.i2cWriteBuffer(0x10, buf);
+        buf[0] = 0x02;
+        pins.i2cWriteBuffer(0x10, buf);
+    }
+  
     //% weight=20
     //% blockId=read_Patrol block="Read Patrol|%patrol"
     //% patrol.fieldEditor="gridpicker" patrol.fieldOptions.columns=2 
