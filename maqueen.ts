@@ -182,16 +182,56 @@ namespace maqueen {
     }
 
     //% weight=10
-    //% blockId=motor_MotorForward block="MotorForward dir|%Dir|speed|%speed"
+    //% blockId=motor_MotorForward block="MotorForward speed|%speed"
     //% speed.min=0 speed.max=255
-    //% direction.fieldEditor="gridpicker" direction.fieldOptions.columns=2
-    export function MotorForward(direction: Dir, speed: number): void {
+    export function MotorForward(speed: number): void {
         let buf = pins.createBuffer(3);
         buf[0] = 0x00;
-        buf[1] = direction;
+        buf[1] = Dir.CW;
         buf[2] = speed;
         pins.i2cWriteBuffer(0x10, buf);
         buf[0] = 0x02;
+        pins.i2cWriteBuffer(0x10, buf);
+    }
+
+    //% weight=10
+    //% blockId=motor_MotorBackward block="MotorBackward speed|%speed"
+    //% speed.min=0 speed.max=255
+    export function MotorBackward(speed: number): void {
+        let buf = pins.createBuffer(3);
+        buf[0] = 0x00;
+        buf[1] = Dir.CCW;
+        buf[2] = speed;
+        pins.i2cWriteBuffer(0x10, buf);
+        buf[0] = 0x02;
+        pins.i2cWriteBuffer(0x10, buf);
+    }
+
+    //% weight=10
+    //% blockId=motor_TurnLeft block="TurnLeft"
+    //% speed.min=0 speed.max=255
+    export function TurnLeft(): void {
+        let buf = pins.createBuffer(3);
+        buf[0] = 0x00;
+        buf[1] = Dir.CW;
+        buf[2] = 127;
+        pins.i2cWriteBuffer(0x10, buf);
+        buf[0] = 0x02;
+        buf[2] = 255;
+        pins.i2cWriteBuffer(0x10, buf);
+    }
+
+    //% weight=10
+    //% blockId=motor_TurnRight block="TurnRight"
+    //% speed.min=0 speed.max=255
+    export function TurnRight(): void {
+        let buf = pins.createBuffer(3);
+        buf[0] = 0x00;
+        buf[1] = Dir.CW;
+        buf[2] = 255;
+        pins.i2cWriteBuffer(0x10, buf);
+        buf[0] = 0x02;
+        buf[2] = 127;
         pins.i2cWriteBuffer(0x10, buf);
     }
 
