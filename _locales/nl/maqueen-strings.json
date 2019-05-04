@@ -11,6 +11,7 @@
     "maqueen.motorStop|block": "Stop motor|%motors",
     "maqueen.motorStopAll|block": "Stop alle motoren",
     "maqueen.MotorRun|block": "Motor|%index|richting|%Dir|snelheid|%speed",
+    "maqueen.MotorForward|block": "Rij vooruit richting|%Dir|snelheid|%speed",
     "maqueen.IR_callbackUser|block": "op obloq ontvangen",
     "maqueen.sensor|block": "Sensor eenheid|%unit",
     "maqueen.readPatrol|block": "Lees route geleiding|%patrol",
