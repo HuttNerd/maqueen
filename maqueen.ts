@@ -214,7 +214,7 @@ namespace maqueen {
         let buf = pins.createBuffer(3);
         buf[0] = 0x00;
         buf[1] = Dir.CW;
-        buf[2] = 127;
+        buf[2] = 0;
         pins.i2cWriteBuffer(0x10, buf);
         buf[0] = 0x02;
         buf[2] = 255;
@@ -231,7 +231,7 @@ namespace maqueen {
         buf[2] = 255;
         pins.i2cWriteBuffer(0x10, buf);
         buf[0] = 0x02;
-        buf[2] = 127;
+        buf[2] = 0;
         pins.i2cWriteBuffer(0x10, buf);
     }
 
