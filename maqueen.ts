@@ -195,7 +195,6 @@ namespace maqueen {
         pins.i2cWriteBuffer(0x10, buf);
     }
 
-
     //% weight=20
     //% blockId=read_Patrol block="Read Patrol|%patrol"
     //% patrol.fieldEditor="gridpicker" patrol.fieldOptions.columns=2 
